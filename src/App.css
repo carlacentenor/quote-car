@@ -1,33 +1,61 @@
-.App {
-  text-align: center;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.grid-two-column {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+    background-image: url('../src/car.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.bg-form {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bg-border {
+    background-color: rgba(32, 46, 69, 0.4);
+    border: 1px solid #4b5263;
+    padding: 3em;
+    max-width: 600px;
+}
+
+p {
+    margin: 0;
+}
+
+.banner {
+    text-align: left;
+    max-width: 600px;
+}
+
+.banner h6 {
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.banner h1 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1em;
+    margin-top: 20px;
+}
+
+.border-total {
+    border: 2px solid #fab700;
+    border-radius: 8px;
+    padding: 1em;
 }
