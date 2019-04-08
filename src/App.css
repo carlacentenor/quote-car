@@ -59,3 +59,20 @@ p {
     border-radius: 8px;
     padding: 1em;
 }
+
+.border-total p:nth-child(1){
+    font-weight: bold;
+}
+
+.box-total{
+    
+    font-size: 20px;
+    color: #fab700;
+    font-weight: bold;
+
+}
+
+.btn-warning{
+    font-weight: bold;
+    text-transform: uppercase;
+}

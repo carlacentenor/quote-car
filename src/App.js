@@ -9,13 +9,16 @@ class App extends Component {
       year: "2019",
       plan: "basico",
       price: 2000.0,
-      total:2000.0,
+      total:2760.00,
     };
+
     this.handleChangeBrand = this.handleChangeBrand.bind(this);
     this.handleChangeYear = this.handleChangeYear.bind(this);
     this.handleChangePlan = this.handleChangePlan.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+ 
 
   handleChangeBrand(event) {
     this.setState({ brand: event.target.value });
@@ -33,23 +36,26 @@ class App extends Component {
     const brandSelect = this.state.brand;
     const planSelect = this.state.plan;
     const BRAND1 = 0.15; // Americano
-    const BRAND2 = 0.3; // Europeo
+    const BRAND2 = 0.30; // Europeo
     const BRAND3 = 0.05; // Asiatico
     let rateAumentBrand = 0;
+    let date = new Date();
 
+    // Select rate Brand
     if (brandSelect === "americano") {
-      rateAumentBrand = BRAND1 * priceBase + priceBase;
+      rateAumentBrand = BRAND1 ;
     } else if (brandSelect === "europeo") {
-      rateAumentBrand = BRAND2 * priceBase + priceBase;
+      rateAumentBrand = BRAND2 ;
     } else {
-      rateAumentBrand = BRAND3 * priceBase + priceBase;
+      rateAumentBrand = BRAND3 ;
     }
 
-    let rateAumentPlan = planSelect==='basico' ? 0.2 : 0.5;
-    let rateDiscountYear =
-      rateAumentBrand - rateAumentBrand * ((2019 - yearSelect) * 0.03);
-    let totaQuote = rateDiscountYear*rateAumentPlan + rateDiscountYear;
-    this.setState({total:totaQuote});
+    let rateAumentPlan = planSelect==='basico' ? 0.20 : 0.50;
+    let totalDiscountYear =priceBase - priceBase * ((date.getFullYear() - yearSelect) * 0.03);
+    let totalAumentBrand = totalDiscountYear*rateAumentBrand + totalDiscountYear;
+    let totalAumentPlan = totalAumentBrand*rateAumentPlan+ totalAumentBrand;
+
+    this.setState({total:totalAumentPlan.toFixed(2)});
   }
 
   render() {
@@ -57,9 +63,9 @@ class App extends Component {
       <div className="bg-form  grid-container">
       <div className="p-3" >
       <div className=" banner ">
-							<h6 className="text-white ">the Royal Essence of Journey</h6>
+							<h6 className="text-white ">Viajar es asombroso</h6>
 							<h1 className="text-white text-uppercase">
-								Relaxed Journey Ever				
+								Viaja sin preocupación			
 							</h1>
 							<p className="pt-20 pb-20 text-white">
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -148,15 +154,16 @@ class App extends Component {
           </button>
         </form>
         <div className="text-center border-total mt-3">
-          <p className="text-uppercase text-bold">Resumen de Cotización</p>
+          <p className="text-uppercase ">Resumen de Cotización</p>
           <p className="text-capitalize">Marca :{this.state.brand}</p>
           <p className="text-capitalize">Plan: {this.state.plan} </p>
-          <p>Año de Auto :{this.state.year}</p>
-          <div className="text-center ">
-          <p>El total es : ${this.state.total}</p>
-        </div>
+          <p>Año del Auto :{this.state.year}</p>
+          <div className="box-total text-center mt-2 ">
+        <p>El total es : ${this.state.total}</p>
         </div>
         
+        </div>
+       
       </div>
       </div>
       </div>
